@@ -10,10 +10,16 @@ const Clock: React.FC = () => {
       year: "numeric",
     })
   );
-  const now = new Date();
+
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(new Date().toLocaleTimeString());
+      setToday(new Date().toLocaleDateString("en-us", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }))
     }, 1000);
 
     return () => clearInterval(interval);
